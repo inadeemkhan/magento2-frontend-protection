@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
+    <system>
+        <section id="devscripts_password" translate="label" sortOrder="900"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Password Protection</label>
+            <tab>devscripts</tab>
+            <resource>Magento_Config::config</resource>
+
+            <group id="general" translate="label" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+
+                <field id="enabled" translate="label" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Password Protection</label>
+                    <comment>
+                        Enable or disable password protection for the frontend website.
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="password" translate="label" type="password" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Website Password</label>
+                    <comment>
+                        Password is stored securely in encrypted form and will not be visible after saving.
+                    </comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="ip_whitelist" translate="label" type="textarea" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>IP Whitelist</label>
+                    <comment>
+                        Enter allowed IP addresses or CIDR ranges (one per line).
+                        Users from these IPs will bypass password protection.
+                        Example:
+                        192.168.1.10
+                        10.0.0.0/24
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="logo" translate="label" type="image" sortOrder="40"
+                    showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Website Logo</label>
+                    <comment>Upload a logo to display at the top of the password page.</comment>
+                    <backend_model>DevScripts\Password\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">password_page</upload_dir>
+                    <base_url type="media">password_page</base_url>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="background" translate="label" type="image" sortOrder="50"
+                    showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <comment>Upload a background image for the password page.</comment>
+                    <backend_model>DevScripts\Password\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">password_page</upload_dir>
+                    <base_url type="media">password_page</base_url>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

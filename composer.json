@@ -1,0 +1,22 @@
+{
+    "name": "devscripts/module-password",
+    "description": "Magento 2 extension to password protect your store",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Nadeem Khan",
+            "email": "khannadeem243@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "DevScripts\\Password\\": ""
+        }
+    }
+}
