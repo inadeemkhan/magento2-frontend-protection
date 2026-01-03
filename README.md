@@ -2,7 +2,7 @@
 
 ![Magento](https://img.shields.io/badge/Magento-2.x-orange?logo=magento)  ![PHP](https://img.shields.io/badge/PHP-8.x-blue?logo=php) ![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen)  
   
-##### Magento 2 extension that allows selectively bypassing Admin Two-Factor Authentication (2FA) for chosen admin users, with configurable enable/disable control from the admin panel.
+##### This module enables password-based access control for the storefront, allowing administrators to restrict public access to the website. It provides configurable options to enable or disable protection, define a secure password, whitelist specific IP addresses, and customize the appearance of the password page with a logo and background image. The module is designed to be lightweight, secure, and fully configurable per store view, making it suitable for development, staging, or private storefront environments.
 ---
 
 ## Installation  
@@ -25,7 +25,7 @@
 
 ![Admin Configuration](https://github.com/inadeemkhan/magento2-frontend-protection/blob/master/images/admin-config.png) 
 
-*Frontend Password Form**  
+**Frontend Password Form**
 
 ![Admin Configuration](https://github.com/inadeemkhan/magento2-frontend-protection/blob/master/images/frontend.png) 
 
