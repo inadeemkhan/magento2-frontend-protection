@@ -209,6 +209,25 @@ class PasswordCheck
                 .password-wrapper button:hover {
                     background: #005fa3;
                 }
+                .show-password-row {
+                    text-align: left;
+                    margin-bottom: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                }
+                .show-password-row input[type="checkbox"] {
+                    width: auto;
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                }
+                .show-password-row label {
+                    font-size: 14px;
+                    color: #666;
+                    cursor: pointer;
+                    display: inline;
+                }
             </style>
         </head>
         <body>
@@ -217,9 +236,20 @@ class PasswordCheck
                 <h2>Protected Website</h2>
                 <p>Please enter the password to access this website.</p>
                 <form method="post">
-                    <input type="password" name="website_password" placeholder="Enter password" required />
+                    <input type="password" name="website_password" id="website_password" placeholder="Enter password" required />
+                    <div class="show-password-row">
+                        <input type="checkbox" id="show_password_toggle" onclick="togglePassword()" />
+                        <label for="show_password_toggle">Show Password</label>
+                    </div>
                     <button type="submit">Access Website</button>
                 </form>
+                <script>
+                    function togglePassword() {
+                        var input = document.getElementById('website_password');
+                        var checkbox = document.getElementById('show_password_toggle');
+                        input.type = checkbox.checked ? 'text' : 'password';
+                    }
+                </script>
             </div>
         </body>
         </html>

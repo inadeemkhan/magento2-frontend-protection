@@ -2,6 +2,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/system_file.xsd">
     <system>
+        <tab id="devscripts" translate="label" sortOrder="999">
+            <label>Dev Scripts</label>
+        </tab>
+
         <section id="devscripts_password" translate="label" sortOrder="900"
                  showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Password Protection</label>
@@ -25,9 +29,9 @@
                        showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Website Password</label>
                     <comment>
-                        Password is stored securely in encrypted form and will not be visible after saving.
+                        Enter the password required to access the frontend website.
                     </comment>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <frontend_model>DevScripts\Password\Block\Adminhtml\System\Config\ShowPassword</frontend_model>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
@@ -53,7 +57,7 @@
                     <label>Website Logo</label>
                     <comment>Upload a logo to display at the top of the password page.</comment>
                     <backend_model>DevScripts\Password\Model\Config\Backend\Image</backend_model>
-                    <upload_dir config="system/filesystem/media" scope_info="1">password_page</upload_dir>
+                    <upload_dir config="system/filesystem/media">password_page</upload_dir>
                     <base_url type="media">password_page</base_url>
                     <depends>
                         <field id="enabled">1</field>
@@ -65,7 +69,7 @@
                     <label>Background Image</label>
                     <comment>Upload a background image for the password page.</comment>
                     <backend_model>DevScripts\Password\Model\Config\Backend\Image</backend_model>
-                    <upload_dir config="system/filesystem/media" scope_info="1">password_page</upload_dir>
+                    <upload_dir config="system/filesystem/media">password_page</upload_dir>
                     <base_url type="media">password_page</base_url>
                     <depends>
                         <field id="enabled">1</field>

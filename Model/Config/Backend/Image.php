@@ -14,7 +14,7 @@ class Image extends MagentoImage
 
     protected function _addWhetherScopeInfo()
     {
-        return true;
+        return false;
     }
 
     protected function _getAllowedExtensions()
@@ -30,6 +30,6 @@ class Image extends MagentoImage
 
         return $this->_urlBuilder->getBaseUrl(
             UrlInterface::URL_TYPE_MEDIA
-        ) . 'password_page/' . ltrim($this->getValue(), '/');
+        ) . 'password_page/' . ltrim(str_replace('default/', '', $this->getValue()), '/');
     }
 }
